@@ -1,0 +1,28 @@
+{
+  "name": "eureka-rn-components",
+  "version": "0.0.1",
+  "description": "Uma biblioteca para componentes para react native",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EurekaLabs-Dev/eureka-rn-components.git"
+  },
+  "keywords": [
+    "react-native",
+    "react",
+    "mobile",
+    "components"
+  ],
+  "author": "eurekalabs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EurekaLabs-Dev/eureka-rn-components/issues"
+  },
+  "homepage": "https://github.com/EurekaLabs-Dev/eureka-rn-components#readme",
+  "peerDependencies": {
+    "react-native-elements": "^0.6.3"
+  }
+}
