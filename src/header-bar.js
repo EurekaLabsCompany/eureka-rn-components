@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import ToolbarAndroid from 'ToolbarAndroid';
 import {
   Text,
   View,
   Image,
   Platform,
   StyleSheet,
-  TouchableOpacity
+  TouchableOpacity,
+  ToolbarAndroid
 } from 'react-native';
 
 const STATUS_BAR_HEIGHT = Platform.OS === 'ios' ? 20 : 0;

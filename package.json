@@ -24,5 +24,8 @@
   "homepage": "https://github.com/EurekaLabs-Dev/eureka-rn-components#readme",
   "peerDependencies": {
     "react-native-elements": "^0.6.3"
+  },
+  "dependencies": {
+    "numeral": "^1.5.3"
   }
 }
