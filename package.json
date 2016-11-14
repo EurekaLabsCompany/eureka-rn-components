@@ -26,6 +26,7 @@
     "react-native-elements": "^0.6.3"
   },
   "dependencies": {
-    "numeral": "^1.5.3"
+    "numeral": "^1.5.3",
+    "react-native-maps": "^0.11.0"
   }
 }
