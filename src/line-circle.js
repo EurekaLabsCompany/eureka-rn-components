@@ -1,7 +1,5 @@
 import React, { PropTypes } from 'react';
-import {
-  Circle
-} from './circle';
+import Circle from './circle';
 import {
   View
 } from 'react-native';
