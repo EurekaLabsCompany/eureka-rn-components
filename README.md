@@ -40,6 +40,8 @@ Install react-native-vector-icons (if you do not already have it)
 ## Avatar
 Take an image and description to show a circulated image with the description.
 
+![Avatar](http://i.imgur.com/QGy9aqK.png)
+
 ```js
 import { Avatar } from 'eureka-rn-components';
 <Avatar
