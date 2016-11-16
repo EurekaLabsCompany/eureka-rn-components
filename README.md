@@ -61,7 +61,7 @@ import { Avatar } from 'eureka-rn-components';
 ## Timeline
 Take a array of items and show that in a simple timeline(circles over a line).
 
-[Timeline](http://i.imgur.com/eEJGGIv.png)
+![Timeline](http://i.imgur.com/eEJGGIv.png)
 
 The items in the array must be in this format:
 ```js
