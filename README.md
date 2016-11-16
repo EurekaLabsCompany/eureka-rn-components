@@ -108,4 +108,4 @@ The items in the array must be in this format:
 | itens | none | array (required) | Items that will be shown in timeline.|
 | currentDayColor | grey | string | Circle's background color of the day that matches the current date. |
 | currentDayTextColor | white | string | Text's background color of the day that matches the current date. |
-| lineColor | string | #c4c4c4 | Color of the line between the circles and circle's border. |
+| lineColor | #c4c4c4 | string | Color of the line between the circles and circle's border. |
