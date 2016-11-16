@@ -15,6 +15,8 @@ export const ButtonSecond = require('./button-second').default;
 export const Form = require('./form').default;
 export const FormInput = require('./form-input').default;
 export const ConnectionMsg = require('./connection-msg').default;
+export const Timeline = require('./timeline').default;
+export const LineCircle = require('./line-circle').default;
 
 
 export const Constants = {
@@ -38,5 +40,7 @@ export default {
     ButtonSecond,
     Form,
     FormInput,
-    ConnectionMsg
+    ConnectionMsg,
+    LineCircle,
+    Timeline
 };

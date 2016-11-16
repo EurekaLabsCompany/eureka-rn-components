@@ -8,7 +8,7 @@ import {
 
 
 export default function ListItem({title, description, titleStyle,
-  leftItem, leftItemStyle, style, onPress}) {
+  leftItem, leftItemStyle, style, onPress, rightStyle}) {
   let titleElement = title;
   let descElement = description;
   let leftItemElement;
@@ -30,7 +30,7 @@ export default function ListItem({title, description, titleStyle,
   const content = (
     <View style={[styles.item, style]}>
       {leftItemElement}
-      <View style={{flex: 2}}>
+      <View style={[{flex: 2}, rightStyle]}>
         {titleElement}
         {descElement}
       </View>

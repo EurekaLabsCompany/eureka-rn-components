@@ -27,7 +27,8 @@
   },
   "dependencies": {
     "numeral": "^1.5.3",
-    "react-native-maps": "^0.11.0",
-    "react-native-elements": "^0.6.3"
+    "react-native-elements": "^0.6.3",
+    "react-native-infinite-scroll-view": "^0.4.2",
+    "react-native-maps": "^0.11.0"
   }
 }
