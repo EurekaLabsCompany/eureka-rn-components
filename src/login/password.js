@@ -14,7 +14,7 @@ export default function Password({labels, customStyles, onChangeText, value}) {
       <FormLabel
         labelStyle={{color: customStyles.textColor}}
         >
-        { labels.username }
+        { labels.password }
       </FormLabel>
       <FormInput
         inputStyle={{color: customStyles.textColor}}
