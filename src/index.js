@@ -1,6 +1,6 @@
 // @flow
 export const Avatar = require('./avatar').default;
-export const AvatarTouggle = require('./avatar-touggle').default;
+export const AvatarToggle = require('./avatar-toggle').default;
 export const DiaItem = require('./dia-item').default;
 export const Countdown = require('./countdown').default;
 export const HeaderBar = require('./header-bar').default;
@@ -25,7 +25,7 @@ export const Constants = {
 
 export default {
     Avatar,
-    AvatarTouggle,
+    AvatarToggle,
     DiaItem,
     Countdown,
     HeaderBar,

@@ -28,10 +28,6 @@ const MsgValidation = ({style, message}) => (
   </Text>
 );
 
-
-
-
-
 export default class Login extends Component {
   static propTypes = {
       onSubmit: PropTypes.func,
@@ -59,7 +55,7 @@ export default class Login extends Component {
 
   getCustomStyles() {
     return {
-      messageValidation: '#c4c4c4',
+      messageValidationColor: '#c4c4c4',
       text: '#ffffff',
       ...this.props.customStyles
     };
@@ -89,18 +85,18 @@ export default class Login extends Component {
   }
 
   renderFormFields() {
-    const { style } = this.props;
+    const { style, validationMessage } = this.props;
     const customStyles = this.getCustomStyles();
     const labels = this.getLabels();
-    const { username, password, errorMessage } = this.state;
+    const { username, password } = this.state;
 
     return (
       <Form style={style}
         onSuccess={this.handleSubmit.bind(this)}
         submitButton={this.renderSubmit.bind(this)}>
-        { errorMessage ? <MsgValidation
+        { validationMessage ? <MsgValidation
             style={{color: customStyles.messageValidationColor}}
-            message={errorMessage}/> : null }
+            message={validationMessage}/> : null }
         <Username
           label={ labels.username }
           value={ username }

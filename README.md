@@ -17,7 +17,7 @@ Install react-native-vector-icons (if you do not already have it)
 
 ## Included
 - [x] Avatar
-- [ ] AvatarTouggle
+- [ ] AvatarToggle
 - [ ] ButtonSecond
 - [ ] Circle
 - [ ] ConnectionMessage
