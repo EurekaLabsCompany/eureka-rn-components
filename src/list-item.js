@@ -52,7 +52,9 @@ ListItem.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.any.isRequired,
   titleStyle: PropTypes.any,
-  leftItem: PropTypes.element
+  leftItem: PropTypes.element,
+  leftItemStyle: PropTypes.any,
+  titleStyle: PropTypes.any
 };
 
 const styles = StyleSheet.create({
