@@ -12,16 +12,17 @@ function createDiaHora({
   isFirst,
   isLast,
   lineColor,
+  textColor,
   currentDayColor = 'gray',
   currentDayTextColor = 'white'}) {
   const isCurrentDay = moment(item.startDate).diff(moment(), 'days') === 0;
   const styles = {
     day: {
       fontSize: 18,
-      color: isCurrentDay ? currentDayTextColor : null
+      color: isCurrentDay ? currentDayTextColor : textColor
     },
     time: {
-      color: isCurrentDay ? currentDayTextColor : null
+      color: isCurrentDay ? currentDayTextColor : textColor
     },
     circleStyle: {
       backgroundColor: isCurrentDay ? currentDayColor : null
@@ -54,7 +55,7 @@ function createDescription(item) {
   )
 }
 
-function Timeline({itens, lineColor, currentDayColor, currentDayTextColor}) {
+function Timeline({itens, lineColor, currentDayColor, currentDayTextColor, titleStyle, textColor}) {
   const renderItem = (item, sectionId, rowId) => {
     const isFirst = rowId == 0;
     const isLast = rowId == itens.length - 1;
@@ -65,11 +66,16 @@ function Timeline({itens, lineColor, currentDayColor, currentDayTextColor}) {
       isLast,
       currentDayColor,
       currentDayTextColor,
-      lineColor
+      lineColor,
+      textColor
     });
     return (
       <ListItem
         title={item.title}
+        titleStyle={[titleStyle, {
+          color: textColor,
+          fontSize: 14
+        }]}
         style={{paddingTop: 0}}
         leftItemStyle={{width: 100}}
         rightStyle={{justifyContent: vAlign}}
@@ -90,7 +96,8 @@ Timeline.propTypes = {
   currentDayColor: PropTypes.string,
   currentDayTextColor: PropTypes.string,
   lineColor: PropTypes.string,
-  itens: PropTypes.array.isRequired
+  itens: PropTypes.array.isRequired,
+  titleStyle: PropTypes.any
 }
 
 

@@ -31,6 +31,7 @@ class ListViewFull extends Component {
   render() {
     const {refreshing, onRefresh, onLoadMoreAsync, canLoadMoreContent} = this.props;
     let scrollComponent;
+    let refreshControl;
     if (onLoadMoreAsync) {
       scrollComponent= props => (
         <InfiniteScrollView
@@ -38,16 +39,19 @@ class ListViewFull extends Component {
           canLoadMoreContent={canLoadMoreContent}/>
       );
     }
+    if (onRefresh) {
+      refreshControl= (
+        <RefreshControl
+          refreshing={refreshing}
+          onRefresh={onRefresh}
+        />
+      )
+    }
     return (
       <ListView
-        {...this.props}
-        dataSource={this.state.dataSource}
-        refreshControl={
-          <RefreshControl
-            refreshing={refreshing}
-            onRefresh={onRefresh}
-          />
-        }
+        { ...this.props }
+        dataSource={ this.state.dataSource }
+        refreshControl={ refreshControl }
         renderScrollComponent={scrollComponent}
         />
     );

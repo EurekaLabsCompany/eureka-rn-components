@@ -82,17 +82,17 @@ The items in the array must be in this format:
   const itens = [{
     title: 'Jogo de Futebol',
     startDate: Date.now() + 200 * 3600 * 1000,
-    end: Date.now(),
+    endDate: Date.now(),
     status: 'Vai iniciar'
   }, {
     title: 'Acampamento',
     startDate: Date.now(),
-    end: Date.now(),
+    endDate: Date.now(),
     status: 'Em Andamento'
   }, {
     title: 'Jogo de boliche',
     startDate: Date.now() - 125 * 3600 * 1000,
-    end: Date.now(),
+    endDate: Date.now(),
     status: 'Em Andamento'
   }];
 
