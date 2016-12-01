@@ -38,7 +38,7 @@ function createDiaHora({
         { moment(item.startDate).format('DD') }
       </Text>
       <Text style={styles.time}>
-        { moment(item.startDate).format('HH:mm') }
+        { moment(item.startDate).format('ddd') }
       </Text>
     </LineCircle>
   );
