@@ -93,17 +93,17 @@ class HeaderIOS extends Component {
       : this.props.children;
     return (
       <View style={[styles.header, this.props.style]}>
-        <View style={styles.leftItem}>
+        <View style={[styles.leftItem, this.props.leftItemStyle]}>
           <ItemWrapperIOS color={itemsColor} item={leftItem} />
         </View>
         <View
           accessible={true}
           accessibilityLabel={title}
           accessibilityTraits="header"
-          style={styles.centerItem}>
+          style={[styles.centerItem, this.props.centerItemStyle]}>
           {content}
         </View>
-        <View style={styles.rightItem}>
+        <View style={[styles.rightItem, this.props.rightItemStyle]}>
           <ItemWrapperIOS color={itemsColor} item={rightItem} />
         </View>
       </View>
