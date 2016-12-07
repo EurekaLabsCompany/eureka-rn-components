@@ -31,7 +31,8 @@ const MsgValidation = ({style, message}) => (
 export default class Login extends Component {
   static propTypes = {
       onSubmit: PropTypes.func,
-      light: PropTypes.bool
+      light: PropTypes.bool,
+      validationMessage: PropTypes.string
   }
 
   constructor(props) {
