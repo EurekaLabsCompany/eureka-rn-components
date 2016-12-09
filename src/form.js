@@ -44,12 +44,12 @@ export default class Form extends Component {
   }
 
   render() {
-    const {submitButton, children, style} = this.props;
+    const {submitButton, children, style, disableSubmit} = this.props;
 
     return (
         <View style={style}>
           {children}
-          {submitButton(this.onSubmit.bind(this))}
+          {submitButton(this.onSubmit.bind(this), disableSubmit)}
         </View>
     )
   }
