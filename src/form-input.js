@@ -56,6 +56,12 @@ export default class EkInput extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+      this.setState({
+        text: nextProps.value
+      })
+  }
+
   isEmpty(text) {
     return  text === undefined || text === null || text === '';
   }

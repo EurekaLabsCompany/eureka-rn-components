@@ -18,6 +18,7 @@ class ConnectionMsg extends Component {
 
   ping() {
     const {pingUrl, onReconnect = () => {}, interval = 5000} = this.props;
+    if (this.pingInterval) clearTimeout(this.pingInterval);
 
     this.pingInterval = setInterval(() => {
       fetch(pingUrl)

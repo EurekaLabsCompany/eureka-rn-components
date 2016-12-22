@@ -4,6 +4,11 @@ import {View} from 'react-native';
 export default class Form extends Component {
   _listeners = [];
 
+  constructor(props) {
+    super(props);
+    this.submit = this.submit.bind(this);
+  }
+
   static PropTypes = {
     onSuccess: PropTypes.func,
     onFail: PropTypes.func,
@@ -30,7 +35,7 @@ export default class Form extends Component {
     this._listeners = this._listeners.filter(l => l  !== ln);
   }
 
-  onSubmit() {
+  submit() {
     const defaultFn = () => {};
     const {onFail = defaultFn, onSuccess = defaultFn} = this.props;
 
@@ -44,12 +49,12 @@ export default class Form extends Component {
   }
 
   render() {
-    const {submitButton, children, style} = this.props;
+    const {submitButton = () => {}, children, style, disableSubmit} = this.props;
 
     return (
         <View style={style}>
           {children}
-          {submitButton(this.onSubmit.bind(this))}
+          {submitButton(this.submit, disableSubmit)}
         </View>
     )
   }
