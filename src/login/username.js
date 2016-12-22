@@ -20,6 +20,8 @@ export default function Username({value, onChangeText, customStyles, label}) {
           color: customStyles.textColor
         }}
         containerStyle={{borderBottomColor: customStyles.textColor}}
+        keyboardType='email-address'
+        autoCapitalize='none'
         value={value}
         messageStyle={{color: customStyles.validationTextColor}}
         onChangeText={ onChangeText }
