@@ -22,8 +22,7 @@ export default class Countdown extends Component {
     };
   }
 
-  componentDidMount() {
-    const {finalDate} = this.props;
+  updateCountdown(finalDate) {
     const countdown = function () {
       const { seconds = 0 } = this.state;
       this.setState({
@@ -38,6 +37,17 @@ export default class Countdown extends Component {
     }
 
     this.state.countdown = setTimeout(countdown.bind(this), 1000);
+  }
+
+  componentDidMount() {
+    this.updateCountdown(this.props.finalDate);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.finalDate != nextProps.finalDate) {
+      clearTimeout(this.state.countdown);
+      this.updateCountdown(nextProps.finalDate);
+    }
   }
 
   componentWillUnmount() {
