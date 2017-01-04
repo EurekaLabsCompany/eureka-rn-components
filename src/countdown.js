@@ -9,10 +9,15 @@ const diffFromNow = (date) => {
   return ( moment(date).toDate().getTime() - new Date().getTime()) / 1000;
 };
 
+function removeStartZeros (time) {
+  return time.replace(/^00:/, '').replace(/^00:/, '');
+}
+
 export default class Countdown extends Component {
   static propTypes = {
     finalDate: PropTypes.any.isRequired,
-    onEndTime: PropTypes.func
+    onEndTime: PropTypes.func,
+    showZeros: PropTypes.bool
   };
 
   constructor(props) {
@@ -58,9 +63,12 @@ export default class Countdown extends Component {
 
   render() {
     const seconds = this.state.seconds > 0 ? this.state.seconds : 0;
+    const format = x => this.props.showZeros ?
+      numeral(x).format('00:00:00') : removeStartZeros(numeral(x).format('00:00:00'));
+
     return (
       <Text style={this.props.style}>
-        { numeral(seconds).format('00:00:00') }
+        { format(seconds) }
       </Text>
     )
   }
