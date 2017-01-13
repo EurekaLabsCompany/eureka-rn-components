@@ -10,11 +10,11 @@ const diffFromNow = (date) => {
 };
 
 function removeStartZeros (time) {
-  return time.replace(/^00:/, '').replace(/^00:/, '');
+  const pattern = /^00?:/;
+  return time.replace(pattern, '').replace(pattern, '');
 }
 
 export default class Countdown extends Component {
-  static propTypes = {
     finalDate: PropTypes.any.isRequired,
     onEndTime: PropTypes.func,
     showZeros: PropTypes.bool
