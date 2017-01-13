@@ -17,6 +17,7 @@ export const FormInput = require('./form-input').default;
 export const ConnectionMsg = require('./connection-msg').default;
 export const Timeline = require('./timeline').default;
 export const LineCircle = require('./line-circle').default;
+export const DatePicker = require('./date-picker').default;
 
 
 export const Constants = {
@@ -27,6 +28,7 @@ export default {
     Avatar,
     AvatarToggle,
     DiaItem,
+    DatePicker,
     Countdown,
     HeaderBar,
     ListItem,
