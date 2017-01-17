@@ -15,6 +15,7 @@ function removeStartZeros (time) {
 }
 
 export default class Countdown extends Component {
+  static propTypes = {
     finalDate: PropTypes.any.isRequired,
     onEndTime: PropTypes.func,
     showZeros: PropTypes.bool
