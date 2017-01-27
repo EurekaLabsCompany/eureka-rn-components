@@ -3,11 +3,8 @@ import {
   Dimensions
 } from 'react-native';
 import DatePicker from 'react-native-datepicker';
-import {
-  primaryColor
-} from '../colors';
 
-export default function EkDatePicker ({onDateChange, date}) {
+export default function EkDatePicker ({onDateChange, date, lineColor='grey'}) {
   return (
     <DatePicker
         style={{
@@ -29,7 +26,7 @@ export default function EkDatePicker ({onDateChange, date}) {
             marginRight: 20,
             borderWidth: 0,
             borderBottomWidth: 1,
-            borderBottomColor: 'grey',
+            borderBottomColor: lineColor,
             paddingBottom: 0,
             alignItems: 'flex-start',
             justifyContent: 'flex-end',
