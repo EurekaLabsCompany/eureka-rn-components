@@ -4,18 +4,18 @@ import {
 } from 'react-native';
 import DatePicker from 'react-native-datepicker';
 
-export default function EkDatePicker ({onDateChange, date, lineColor='grey'}) {
+export default function EkDatePicker ({mode= 'datetime', format="DD/MM/YYYY", onDateChange, date, lineColor = 'grey', containerStyle}) {
   return (
     <DatePicker
-        style={{
-          width: Dimensions.get('window').width,
+        style={[{
+          marginRight: 0,
           marginBottom: 0,
           height: 30
-        }}
+        }, containerStyle]}
         date={ date }
-        mode={ 'date' }
+        mode={ mode }
         placeholder=' '
-        format="DD/MM/YYYY"
+        format={format}
         maxDate={new Date()}
         confirmBtnText="Ok"
         cancelBtnText="Cancelar"
