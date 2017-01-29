@@ -47,9 +47,13 @@ function createDiaHora({
 function createDescription(item) {
   const start = moment(item.startDate).format('HH:mm');
   const end = moment(item.endDate).format('HH:mm');
+  let horario = <Text style={{fontSize: 16}}>Das {start} as {end}</Text>;
+  if (!item.endDate) {
+    horario = <Text style={{fontSize: 16}}>Inicia as {start}</Text>;
+  }
   return (
     <View>
-      <Text style={{fontSize: 16}}>Das {start} as {end}</Text>
+      { horario }
       <Text>{item.status}</Text>
     </View>
   )
