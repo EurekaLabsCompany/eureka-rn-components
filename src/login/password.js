@@ -20,7 +20,7 @@ export default function Password({labels, customStyles, onChangeText, value}) {
         inputStyle={{color: customStyles.textColor}}
         containerStyle={{borderBottomColor: customStyles.textColor}}
         required
-        valid={ password => password.length >= 4 }
+        valid={ password => password.length >= 1 }
         message={ labels.passwordLenghtValidation }
         value={ value }
         onChangeText={onChangeText}
