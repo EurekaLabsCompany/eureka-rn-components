@@ -7,6 +7,20 @@ import {
 } from 'react-native';
 import moment from 'moment';
 
+function renderLeftItem ({isFirst, isLast, item, leftItem, containerStyle}) {
+  if (!item || !leftItem) return null;
+  return (
+    <View
+      style={[{
+        marginTop: isFirst ? 5 : 0,
+        marginBottom: isLast ? 5 : 0,
+        alignSelf: isFirst ? 'flex-start' : isLast ? 'flex-end' : 'center'
+      }, containerStyle]}>
+      { leftItem(item) }
+    </View>
+  );
+}
+
 function createDiaHora({
   item,
   isFirst,
@@ -14,7 +28,10 @@ function createDiaHora({
   lineColor,
   textColor,
   currentDayColor = 'gray',
-  currentDayTextColor = 'white'}) {
+  currentDayTextColor = 'white',
+  leftItem,
+  leftItemContainerStyle
+}) {
   const isCurrentDay = moment(item.startDate).diff(moment(), 'days') === 0;
   const styles = {
     day: {
@@ -29,18 +46,21 @@ function createDiaHora({
     }
   };
   return (
-    <LineCircle
-      circleStyle={styles.circleStyle}
-      lineColor={lineColor}
-      showTopLine={!isFirst}
-      showBottomLine={!isLast}>
-      <Text style={styles.day}>
-        { moment(item.startDate).format('DD') }
-      </Text>
-      <Text style={styles.time}>
-        { moment(item.startDate).format('ddd') }
-      </Text>
-    </LineCircle>
+    <View style={{flexDirection: 'row', alignItems: 'center'}}>
+      {renderLeftItem({item, leftItem, isFirst, isLast, containerStyle: leftItemContainerStyle})}
+      <LineCircle
+        circleStyle={styles.circleStyle}
+        lineColor={lineColor}
+        showTopLine={!isFirst}
+        showBottomLine={!isLast}>
+        <Text style={styles.day}>
+          { moment(item.startDate).format('DD') }
+        </Text>
+        <Text style={styles.time}>
+          { moment(item.startDate).format('ddd') }
+        </Text>
+      </LineCircle>
+    </View>
   );
 }
 
@@ -59,19 +79,21 @@ function createDescription(item) {
   )
 }
 
-function Timeline({itens, lineColor, currentDayColor, currentDayTextColor, titleStyle, textColor}) {
+function Timeline({itens, leftItem, leftItemContainerStyle, lineColor, currentDayColor, currentDayTextColor, titleStyle, textColor, onPress}) {
   const renderItem = (item, sectionId, rowId) => {
     const isFirst = rowId == 0;
     const isLast = rowId == itens.length - 1;
     const vAlign = !isFirst && !isLast ? 'center' : isLast ? 'flex-end' : 'flex-start';
-    const leftItem = createDiaHora({
+    const leftItemElement = createDiaHora({
       item,
       isFirst,
       isLast,
       currentDayColor,
       currentDayTextColor,
       lineColor,
-      textColor
+      textColor,
+      leftItem,
+      leftItemContainerStyle
     });
     return (
       <ListItem
@@ -81,9 +103,10 @@ function Timeline({itens, lineColor, currentDayColor, currentDayTextColor, title
           fontSize: 14
         }]}
         style={{paddingTop: 0}}
-        leftItemStyle={{width: 100}}
+        onPress={() => onPress && onPress(item)}
+        leftItemStyle={{width: 120}}
         rightStyle={{justifyContent: vAlign}}
-        leftItem={leftItem}
+        leftItem={leftItemElement}
         description={createDescription(item)}/>
     );
   }
