@@ -61,6 +61,7 @@ export default class Form extends Component {
    return (
        <View style={style}>
          {finalChildren}
+         {submitButton(this.submit, disableSubmit)}
        </View>
    )
  }
