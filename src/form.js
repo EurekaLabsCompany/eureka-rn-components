@@ -51,6 +51,7 @@ export default class Form extends Component {
  render() {
    const {submitButton = () => {}, children, style, disableSubmit} = this.props;
    const finalChildren = React.Children.map(children, child => {
+     if (!child) return;
      if (child.props.submit) {
        return React.cloneElement(child, {
          onPress: this.submit
