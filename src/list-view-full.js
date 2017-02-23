@@ -50,6 +50,7 @@ class ListViewFull extends Component {
     return (
       <ListView
         { ...this.props }
+        enableEmptySections={true}
         dataSource={ this.state.dataSource }
         refreshControl={ refreshControl }
         renderScrollComponent={scrollComponent}
