@@ -66,7 +66,7 @@ function createDiaHora({
 
 function createDescription(item) {
   if (item.getDescricao && item.getDescricao === 'function') {
-    return <Text>item.getDescricao()</Text>
+    return <Text>{item.getDescricao()}</Text>
   }
   const start = moment(item.startDate).format('HH:mm');
   const end = moment(item.endDate).format('HH:mm');
