@@ -99,6 +99,7 @@ export default class EkInput extends Component {
   }
 
   handleBlur() {
+    this.props.onBlur && this.props.onBlur();
     this.setState({
       ...this._doValidations(this.state.text),
       dirty: true
