@@ -8,7 +8,7 @@ import {
 
 
 export default function ListItem({title, description, titleStyle,
-  leftItem, leftItemStyle, style, onPress, rightStyle}) {
+  leftItem, leftItemStyle, style, onPress, onLongPress, rightStyle}) {
   let titleElement = title;
   let descElement = description;
   let leftItemElement;
@@ -39,7 +39,7 @@ export default function ListItem({title, description, titleStyle,
 
   if(onPress) {
     return (
-      <TouchableOpacity onPress={onPress}>
+      <TouchableOpacity onPress={onPress} onLongPress={onLongPress}>
         {content}
       </TouchableOpacity>
     );

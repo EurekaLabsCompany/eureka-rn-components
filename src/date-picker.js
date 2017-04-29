@@ -16,7 +16,6 @@ export default function EkDatePicker ({mode= 'datetime', format="DD/MM/YYYY", on
         mode={ mode }
         placeholder=' '
         format={format}
-        maxDate={new Date()}
         confirmBtnText="Ok"
         cancelBtnText="Cancelar"
         showIcon={ false }
