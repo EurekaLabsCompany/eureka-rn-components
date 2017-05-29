@@ -3,7 +3,8 @@ import LineCircle from './line-circle';
 import { ListViewFull, ListItem } from 'eureka-rn-components';
 import {
   View,
-  Text
+  Text,
+  StyleSheet
 } from 'react-native';
 import moment from 'moment';
 
@@ -64,7 +65,7 @@ function createDiaHora({
   );
 }
 
-function createDescription(item) {
+function createDescription(item, statusStyle) {
   if (item.getDescricao && typeof item.getDescricao === 'function') {
     return <Text>{item.getDescricao()}</Text>
   }
@@ -77,12 +78,15 @@ function createDescription(item) {
   return (
     <View>
       { horario }
-      <Text>{item.status}</Text>
+      <View style={{flexDirection: 'row'}}>
+        <Text style={[styles.statusText, statusStyle]}>{item.status}</Text>
+        <View style={{flex: 1}}/>
+      </View>
     </View>
   )
 }
 
-function Timeline({itens, leftItem, leftItemContainerStyle, lineColor, currentDayColor, currentDayTextColor, titleStyle, textColor, onPress}) {
+function Timeline({itens, leftItem, leftItemContainerStyle, lineColor, currentDayColor, currentDayTextColor, titleStyle, textColor, onPress, statusStyle}) {
   const renderItem = (item, sectionId, rowId) => {
     const isFirst = rowId == 0;
     const isLast = rowId == itens.length - 1;
@@ -97,7 +101,7 @@ function Timeline({itens, leftItem, leftItemContainerStyle, lineColor, currentDa
       textColor,
       leftItem,
       leftItemContainerStyle
-    });
+    })
     return (
       <ListItem
         title={item.title}
@@ -110,7 +114,7 @@ function Timeline({itens, leftItem, leftItemContainerStyle, lineColor, currentDa
         leftItemStyle={{width: 120}}
         rightStyle={{justifyContent: vAlign}}
         leftItem={leftItemElement}
-        description={createDescription(item)}/>
+        description={createDescription(item, statusStyle)}/>
     );
   }
 
@@ -121,6 +125,18 @@ function Timeline({itens, leftItem, leftItemContainerStyle, lineColor, currentDa
       itens={itens} />
   );
 }
+
+const styles = StyleSheet.create({
+  statusText: {
+    backgroundColor: 'grey', 
+    padding: 4, 
+    paddingLeft: 10, 
+    paddingRight: 10, 
+    borderRadius: 20, 
+    marginBottom: 5, 
+    color: 'white'
+  }
+})
 
 Timeline.propTypes = {
   currentDayColor: PropTypes.string,
