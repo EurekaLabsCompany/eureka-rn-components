@@ -71,8 +71,8 @@ function createDescription(item, statusStyle) {
   }
   const start = moment(item.startDate).format('HH:mm');
   const end = moment(item.endDate).format('HH:mm');
-  let horario = <Text style={{fontSize: 16}}>Das {start} as {end}</Text>;
-  if (!item.endDate) {
+  let horario
+  if (item.endDate) {
     horario = <Text style={{fontSize: 16}}>Inicia as {start}</Text>;
   }
   return (
@@ -129,6 +129,7 @@ function Timeline({itens, leftItem, leftItemContainerStyle, lineColor, currentDa
 const styles = StyleSheet.create({
   statusText: {
     backgroundColor: 'grey', 
+    fontSize: 10,
     padding: 4, 
     paddingLeft: 10, 
     paddingRight: 10, 
