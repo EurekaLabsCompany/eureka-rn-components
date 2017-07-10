@@ -70,9 +70,9 @@ function createDescription(item, statusStyle) {
     return <Text>{item.getDescricao()}</Text>
   }
   const start = moment(item.startDate).format('HH:mm');
-  const end = moment(item.endDate).format('HH:mm');
+  //const end = moment(item.endDate).format('HH:mm');
   let horario
-  if (item.endDate) {
+  if (item.startDate) {
     horario = <Text style={{fontSize: 16}}>Inicia as {start}</Text>;
   }
   return (
@@ -86,7 +86,7 @@ function createDescription(item, statusStyle) {
   )
 }
 
-function Timeline({itens, leftItem, leftItemContainerStyle, lineColor, currentDayColor, currentDayTextColor, titleStyle, textColor, onPress, statusStyle}) {
+function Timeline({itens, leftItem, leftItemContainerStyle, lineColor, currentDayColor, currentDayTextColor, titleStyle, textColor, onPress, statusStyle, onLongPress}) {
   const renderItem = (item, sectionId, rowId) => {
     const isFirst = rowId == 0;
     const isLast = rowId == itens.length - 1;
@@ -111,6 +111,7 @@ function Timeline({itens, leftItem, leftItemContainerStyle, lineColor, currentDa
         }]}
         style={{paddingTop: 0}}
         onPress={() => onPress && onPress(item)}
+        onLongPress={() => onLongPress && onLongPress(item)}
         leftItemStyle={{width: 120}}
         rightStyle={{justifyContent: vAlign}}
         leftItem={leftItemElement}
@@ -128,13 +129,13 @@ function Timeline({itens, leftItem, leftItemContainerStyle, lineColor, currentDa
 
 const styles = StyleSheet.create({
   statusText: {
-    backgroundColor: 'grey', 
+    backgroundColor: 'grey',
     fontSize: 10,
-    padding: 4, 
-    paddingLeft: 10, 
-    paddingRight: 10, 
-    borderRadius: 20, 
-    marginBottom: 5, 
+    padding: 4,
+    paddingLeft: 10,
+    paddingRight: 10,
+    borderRadius: 20,
+    marginBottom: 5,
     color: 'white'
   }
 })
