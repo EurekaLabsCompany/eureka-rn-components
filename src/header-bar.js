@@ -87,9 +87,9 @@ class HeaderIOS extends Component {
     const itemsColor = foreground === 'dark' ? '#7F91A7' : 'white';
 
     const content = React.Children.count(this.props.children) === 0
-      ? <Text style={[styles.titleText, {color: titleColor}]}>
-      {title}
-    </Text>
+      ? <Text numberOfLines={2} ellipsizeMode='tail' style={[styles.titleText, {color: titleColor}]}>
+        {title}
+      </Text>
       : this.props.children;
     return (
       <View style={[styles.header, this.props.style]}>
@@ -164,14 +164,15 @@ var styles = StyleSheet.create({
   titleText: {
     color: 'white',
     fontWeight: 'bold',
-    fontSize: 20
+    fontSize: 19,
+    backgroundColor: 'transparent'
   },
   leftItem: {
     flex: 1,
     alignItems: 'flex-start'
   },
   centerItem: {
-    flex: 2,
+    flex: 3,
     alignItems: 'center'
   },
   rightItem: {
@@ -189,3 +190,4 @@ var styles = StyleSheet.create({
 });
 
 export default Platform.OS === 'ios' ? HeaderIOS : HeaderAndroid;
+
