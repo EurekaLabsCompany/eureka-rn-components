@@ -38,7 +38,7 @@ export default class Password extends React.Component {
         <TouchableOpacity
           style={{position: 'absolute', top: 30, right: 20}}
           onPress={() => this.setState({securePassword: !this.state.securePassword})} >
-          <Icon name='visibility' color='white'/>
+          <Icon name='visibility' color={customStyles.visibilityColor || 'white'}/>
         </TouchableOpacity>
       </View>
     );
