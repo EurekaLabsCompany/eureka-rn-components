@@ -5,30 +5,42 @@ import {
 import {
   FormInput
 } from 'eureka-rn-components';
-import { View } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
+import { Icon } from 'react-native-elements'
 
-export default function Password({labels, customStyles, onChangeText, value}) {
+export default class Password extends React.Component {
+  state = {
+    securePassword: true
+  }
 
-  return (
-    <View>
-      <FormLabel
-        labelStyle={{color: customStyles.textColor}}
+  render() {
+    const {labels, customStyles, onChangeText, value} = this.props
+    return (
+      <View>
+        <FormLabel
+          labelStyle={{color: customStyles.textColor}}
         >
-        { labels.password }
-      </FormLabel>
-      <FormInput
-        inputStyle={{color: customStyles.textColor}}
-        containerStyle={{borderBottomColor: customStyles.textColor}}
-        required
-        valid={ password => password.length >= 1 }
-        message={ labels.passwordLenghtValidation }
-        value={ value }
-        onChangeText={onChangeText}
-        messageStyle={{color: customStyles.validationTextColor}}
-        keyboardAppearance={customStyles.keyboardAppearance}
-        selectionColor={customStyles.textColor}
-        underlineColorAndroid={customStyles.textColor}
-        secureTextEntry={true}/>
+          { labels.password }
+        </FormLabel>
+        <FormInput
+          inputStyle={{color: customStyles.textColor}}
+          containerStyle={{borderBottomColor: customStyles.textColor}}
+          required
+          valid={ password => password.length >= 1 }
+          message={ labels.passwordLenghtValidation }
+          value={ value }
+          onChangeText={onChangeText}
+          messageStyle={{color: customStyles.validationTextColor}}
+          keyboardAppearance={customStyles.keyboardAppearance}
+          selectionColor={customStyles.textColor}
+          underlineColorAndroid={customStyles.textColor}
+          secureTextEntry={this.state.securePassword}/>
+        <TouchableOpacity
+          style={{position: 'absolute', top: 30, right: 20}}
+          onPress={() => this.setState({securePassword: !this.state.securePassword})} >
+          <Icon name='visibility' color='white'/>
+        </TouchableOpacity>
       </View>
-  );
+    );
+  }
 }
