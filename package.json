@@ -23,12 +23,12 @@
   },
   "homepage": "https://github.com/EurekaLabs-Dev/eureka-rn-components#readme",
   "peerDependencies": {
-    "react-native-vector-icons": "3.0.0"
+    "react-native-vector-icons": "*",
+    "react-native-elements": "*",
+    "numeral": "*"
   },
   "dependencies": {
-    "numeral": "^1.5.3",
     "react-native-datepicker": "^1.4.3",
-    "react-native-elements": "^0.6.3",
     "react-native-infinite-scroll-view": "^0.4.2",
     "react-native-maps": "^0.11.0"
   }
