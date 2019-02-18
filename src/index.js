@@ -9,7 +9,6 @@ export const LoginForm = require('./login/login-form').default;
 export const MonthLinePicker = require('./month-line-picker').default;
 export const Separator = require('./separator').default;
 export const Circle = require('./circle').default;
-export const Location = require('./location').default;
 export const ListViewFull = require('./list-view-full').default;
 export const ButtonSecond = require('./button-second').default;
 export const Form = require('./form').default;
@@ -37,7 +36,6 @@ export default {
     Separator,
     Circle,
     Constants,
-    Location,
     ListViewFull,
     ButtonSecond,
     Form,
